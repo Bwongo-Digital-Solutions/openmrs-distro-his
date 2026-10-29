@@ -40,6 +40,35 @@ server {
   location = /openmrs/spa { return 301 /openmrs/spa/; }
   location /openmrs/spa/ { proxy_pass http://frontend/; proxy_redirect http://$host/ /openmrs/spa/; proxy_read_timeout 300s; }
   location /openmrs { proxy_pass http://backend; proxy_read_timeout 300s; }
+
+  # Preserve the existing HIS/Bahmni application routes behind the shared gateway.
+  location = /uploaded-files { return 301 /uploaded-files/; }
+  location /uploaded-files/ { set $patient_documents patient-documents:80; proxy_pass http://$patient_documents; proxy_redirect http://$host/ /; }
+  location = /document_images { return 301 /document_images/; }
+  location /document_images/ { set $patient_documents patient-documents:80; proxy_pass http://$patient_documents; proxy_redirect http://$host/ /; }
+  location = /uploaded_results { return 301 /uploaded_results/; }
+  location /uploaded_results/ { set $patient_documents patient-documents:80; proxy_pass http://$patient_documents; proxy_redirect http://$host/ /; }
+  location = /openmrs/auth { return 301 /openmrs/auth/; }
+  location /openmrs/auth/ { set $patient_documents patient-documents:80; proxy_pass http://$patient_documents; proxy_redirect http://$host/ /; }
+  location = /appointments { return 301 /appointments/; }
+  location /appointments/ { set $appointments appointments:80; proxy_pass http://$appointments; proxy_redirect http://$host/ /; }
+  location = /ipd { return 301 /ipd/; }
+  location /ipd/ { set $ipd ipd:80; proxy_pass http://$ipd; proxy_redirect http://$host/ /; }
+  location = /bahmnireports { return 301 /bahmnireports/; }
+  location /bahmnireports/ { set $bahmnireports reports:8051; proxy_pass http://$bahmnireports; proxy_redirect http://$host/ /; }
+  location = /bahmni { return 301 /bahmni/; }
+  location /bahmni/ { set $bahmni_web bahmni-web:8091; add_header X-Robots-Tag "noindex, nofollow"; proxy_pass http://$bahmni_web; proxy_redirect http://$host/ /; }
+  location = /person-management { return 301 /person-management/; }
+  location /person-management/ { set $bahmni_web bahmni-web:8091; proxy_pass http://$bahmni_web; proxy_redirect http://$host/ /; }
+  location = /bahmni_config/openmrs/apps { return 301 /bahmni_config/openmrs/apps/; }
+  location /bahmni_config/openmrs/apps/ { set $bahmni_web bahmni-web:8091; proxy_pass http://$bahmni_web; proxy_redirect http://$host/ /; }
+  location = /bahmni_config/openmrs/i18n { return 301 /bahmni_config/openmrs/i18n/; }
+  location /bahmni_config/openmrs/i18n/ { set $bahmni_web bahmni-web:8091; proxy_pass http://$bahmni_web; proxy_redirect http://$host/ /; }
+  location = /implementer-interface { return 301 /implementer-interface/; }
+  location /implementer-interface/ { set $implementer_interface implementer-interface:80; proxy_pass http://$implementer_interface; proxy_redirect http://$host/ /; }
+  location /cgi-bin/ { root /usr/local/bahmni; }
+
+  # Serve the HIS service portal at the root without changing the OpenMRS route.
   location = / { root /usr/share/nginx/html; try_files /index.html =404; add_header Cache-Control "no-store, no-cache, must-revalidate" always; }
   location / { root /usr/share/nginx/html; try_files $uri $uri/ /index.html; }
 }
