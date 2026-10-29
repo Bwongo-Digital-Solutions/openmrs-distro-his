@@ -347,7 +347,7 @@ services:
         aliases:
           - ozone-proxy
     ports:
-      - "8080:80"
+      - "8081:80"
       - "8069:8069"
       - "8084:8084"
     volumes:
