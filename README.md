@@ -29,7 +29,7 @@ The portal links to the applications using the default published ports in the bu
 - Keycloak identity and access: `http://localhost:8084/`
 - OpenELIS Global laboratory: `http://localhost:8085/` when the optional OpenELIS Compose stack is running
 
-Service status badges refresh automatically. A service that is not enabled or started is marked unavailable; starting the corresponding application makes it accessible from the portal. If you customize published ports, update the links and checks in `scripts/proxy/index.html`.
+Service status badges refresh automatically. A service that is not enabled or started is marked unavailable; starting the corresponding application makes it accessible from the portal. If you customize published ports, update the links and checks in `proxy/index.html`.
 
 ## Running it locally
 
