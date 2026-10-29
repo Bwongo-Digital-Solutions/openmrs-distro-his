@@ -352,6 +352,7 @@ services:
       - "8084:8084"
     volumes:
       - "\${PROXY_TLS_CERTS_PATH:-proxy-tls-certs}:/etc/tls"
+      - "./proxy/index.html:/usr/share/nginx/html/index.html:ro"
 
 volumes:
   mysql-data: ~
