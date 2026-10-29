@@ -353,6 +353,8 @@ services:
     volumes:
       - "\${PROXY_TLS_CERTS_PATH:-proxy-tls-certs}:/etc/tls"
       - "./proxy/index.html:/usr/share/nginx/html/index.html:ro"
+      - "./proxy/502.html:/usr/share/nginx/html/502.html:ro"
+      - "./proxy/assets:/usr/share/nginx/html/assets:ro"
 
 volumes:
   mysql-data: ~
