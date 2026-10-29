@@ -19,19 +19,6 @@ Demo Environment: https://dev-his.openmrs.org
 Username: jdoe
 Password: password
 
-## HIS services portal
-
-The bundled Docker proxy serves a service portal at the gateway root instead of redirecting directly to the OpenMRS SPA. After starting the generated Docker Compose deployment, open `http://localhost:8080/` to access the service cards.
-
-The portal links to the applications using the default published ports in the bundled configuration:
-
-- OpenMRS EMR: `http://localhost:8080/openmrs/spa/`
-- Odoo ERP, billing and inventory: `http://localhost:8069/`
-- Keycloak identity and access: `http://localhost:8084/`
-- OpenELIS Global laboratory: `http://localhost:8085/` when the optional OpenELIS Compose stack is running
-
-Service status badges refresh automatically. A service that is not enabled or started is marked unavailable; starting the corresponding application makes it accessible from the portal. If you customize published ports, update the links and checks in `scripts/proxy/index.html`.
-
 ## Running it locally
 
 Like any other Ozone distribution, you can run it locally by following the instructions from the offical Ozone Implementers documentation:
