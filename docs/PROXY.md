@@ -13,15 +13,15 @@ The bundled HIS proxy is the public gateway for the portal, OpenMRS SPA/backend,
 
 ## Routing and optional services
 
-- Portal: `http://localhost:8080/`
-- OpenMRS: `http://localhost:8080/openmrs/spa/`
+- Portal: `http://localhost:8081/`
+- OpenMRS: `http://localhost:8081/openmrs/spa/`
 - Odoo: `http://localhost:8069/` (the proxy's dedicated Odoo listener)
 - Keycloak: `http://localhost:8084/`
 - OpenELIS: `http://localhost:8085/` when the optional OpenELIS Compose stack is running.
 
 OpenELIS remains on its separately published port because the optional OpenELIS Compose file defines its own network. Do not add an upstream hostname to the main gateway unless the OpenELIS services are deliberately attached to a network shared with the gateway. This avoids a route that looks configured but fails with an upstream DNS/connectivity error.
 
-The proxy health endpoint is `http://localhost:8080/healthz`. It checks the gateway process, not the health of every upstream application.
+The proxy health endpoint is `http://localhost:8081/healthz`. It checks the gateway process, not the health of every upstream application.
 
 ## Build and smoke test
 
@@ -37,9 +37,9 @@ Then from the generated runtime directory:
 cd target/distro-his-1.0.0-SNAPSHOT/run/docker
 docker compose up -d
 docker compose ps
-curl -fsS http://localhost:8080/healthz
-curl -I http://localhost:8080/
-curl -I http://localhost:8080/openmrs/spa/
+curl -fsS http://localhost:8081/healthz
+curl -I http://localhost:8081/
+curl -I http://localhost:8081/openmrs/spa/
 curl -I http://localhost:8069/
 curl -I http://localhost:8084/
 ```
