@@ -10,13 +10,12 @@ It is also **white-labeled and ready to be rebranded**, with examples already im
 
 The result is a ready-to-use, modular, and scalable HIS that builds on the strengths of OpenMRS while meeting the broader needs of health facilities and national health programs.
 
-
 ---
 
 ## Try it online
 
-Demo Environment: https://dev-his.openmrs.org 
-Username: jdoe
+Demo Environment: https://dev-his.openmrs.org  
+Username: jdoe  
 Password: password
 
 ## HIS services portal
@@ -34,10 +33,12 @@ Service status badges refresh automatically. A service that is not enabled or st
 
 ## Running it locally
 
-Like any other Ozone distribution, you can run it locally by following the instructions from the offical Ozone Implementers documentation:
-👉 https://docs.ozone-his.com/implementers/start-stop/
+For a quick start, see **[docs/RUNNING.md](docs/RUNNING.md)**. It covers prerequisites, building the distribution, starting the Docker Compose services, optional OpenELIS startup, logs, shutdown, and common troubleshooting steps.
+
+The official Ozone start/stop guide is also available [here](https://docs.ozone-his.com/implementers/start-stop/).
 
 ---
+
 <br/>
 
 <p align="center">
