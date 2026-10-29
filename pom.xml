@@ -140,7 +140,7 @@
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${project.basedir}/scripts/proxy</directory>
+                  <directory>${project.basedir}/proxy</directory>
                   <includes>
                     <include>index.html</include>
                   </includes>
