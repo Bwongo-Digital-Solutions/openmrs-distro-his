@@ -83,8 +83,10 @@ server {
     proxy_pass http://backend;
   }
 
+  # Serve the HIS service portal at the gateway root.
   location = / {
-    return 301 /openmrs/spa/;
+    root /usr/share/nginx/html;
+    try_files /index.html =404;
   }
 }
 
