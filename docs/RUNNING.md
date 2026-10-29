@@ -99,7 +99,7 @@ Do not use **docker compose down -v** unless you deliberately intend to remove n
 
 ## 7. Configuration and troubleshooting
 
-- **Port already in use:** Check ports 8080, 8069, 8084, 8085, 3306, and 5432. Stop the conflicting service or adjust the published port and portal links in **scripts/proxy/index.html**.
+- **Port already in use:** Check ports 8080, 8069, 8084, 8085, 3306, and 5432. Stop the conflicting service or adjust the published port and portal links in **proxy/index.html**.
 - **A portal card is unavailable:** Check **docker compose ps** and **docker compose logs <service-name>**. OpenELIS is optional and stays unavailable until its separate stack is running.
 - **Containers are still starting:** Wait a few minutes and inspect logs; database initialization and OpenMRS module startup can take time.
 - **Portal changes do not appear:** Rebuild with **mvn clean package**, then recreate or restart the proxy container from the generated runtime directory.
