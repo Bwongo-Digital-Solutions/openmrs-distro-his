@@ -67,9 +67,12 @@
   async function checkServices(){
     await Promise.all(services.map(async service=>{
       try{
-        const response=await fetch(service.probe,{method:'GET',mode:'no-cors',cache:'no-store',signal:AbortSignal.timeout(4500)});
-        // no-cors returns an opaque response on cross-port checks; a completed fetch means reachable.
-        setStatus(service,'online','Online');
+        const sameOrigin=new URL(service.probe,window.location.href).origin===window.location.origin;
+        const response=await fetch(service.probe,{method:'GET',mode:sameOrigin?'same-origin':'no-cors',cache:'no-store',signal:AbortSignal.timeout(4500)});
+        // For same-origin requests, treat gateway errors as offline. Cross-port no-cors
+        // checks are opaque, so a completed request means that the service answered.
+        if(sameOrigin && response.status>=500){setStatus(service,'offline','Unavailable');}
+        else{setStatus(service,'online','Online');}
       }catch(error){setStatus(service,'offline','Unavailable');}
     }));
   }
