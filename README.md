@@ -33,7 +33,7 @@ Service status badges refresh automatically. A service that is not enabled or st
 
 ## Running it locally
 
-For a quick start, see **[docs/RUNNING.md](docs/RUNNING.md)**. It covers prerequisites, building the distribution, starting the Docker Compose services, optional OpenELIS startup, logs, shutdown, and common troubleshooting steps.
+For a quick start, see **[docs/RUNNING.md](docs/RUNNING.md)**. For gateway routes, proxy assets, and proxy smoke tests, see **[docs/PROXY.md](docs/PROXY.md)**.
 
 The official Ozone start/stop guide is also available [here](https://docs.ozone-his.com/implementers/start-stop/).
 
