@@ -20,11 +20,11 @@ Password: password
 
 ## HIS services portal
 
-The bundled Docker proxy serves a service portal at the gateway root instead of redirecting directly to the OpenMRS SPA. After starting the generated Docker Compose deployment, open `http://localhost:8080/` to access the service cards.
+The bundled Docker proxy serves a service portal at the gateway root instead of redirecting directly to the OpenMRS SPA. After starting the generated Docker Compose deployment, open `http://localhost:8081/` to access the service cards.
 
 The portal links to the applications using the default published ports in the bundled configuration:
 
-- OpenMRS EMR: `http://localhost:8080/openmrs/spa/`
+- OpenMRS EMR: `http://localhost:8081/openmrs/spa/`
 - Odoo ERP, billing and inventory: `http://localhost:8069/`
 - Keycloak identity and access: `http://localhost:8084/`
 - OpenELIS Global laboratory: `http://localhost:8085/` when the optional OpenELIS Compose stack is running
